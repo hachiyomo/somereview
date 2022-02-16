@@ -1,0 +1,21 @@
+<h1 class="text-center">レビュー一覧</h1>
+
+<ul>
+  <% @reviews.each do |review| %>
+  
+   <table class="table table-striped table-bordered">
+     <tr>
+       <th class="text-center">id</th>
+       <th class="text-center">タイトル</th>
+       <th class="text-center">レビュー</th>
+     </tr>
+     <tr>
+       <th class="text-center"><%= link_to review.id, review %></th> 
+       <th class="text-center"><%= review.title %></th>
+       <th class="text-center"><%= review.text %></th>
+   </tr>
+   </table>
+  <% end %>
+</ul>
+
+<%= link_to '新規レビュー投稿', new_review_path %>

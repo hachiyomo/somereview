@@ -1,0 +1,29 @@
+<h1>id: <%= @review.id %></h1>
+
+<ul>
+     <table class="table table-striped table-bordered">
+     <tr>
+       <th class="text-center">タイトル</th>
+       <th class="text-center">レビュー</th>
+     </tr>
+     <tr>
+       <th class="text-center"><%= @review.title %></th>
+       <th class="text-center"><%= @review.text %></th>
+    </tr>
+    </table>
+</ul> 
+<div class="row">
+  <div class="col-sm-8 offset-sm-3">
+  
+ 
+   <%= link_to '一覧に戻る', reviews_path, class: 'btn btn-secondary btn-sm mr-6' %>
+ 
+ 
+   <%= link_to 'このレビューを編集する', edit_review_path(@review), class: 'btn btn-secondary btn-sm mr-6' %>
+
+
+    <%= link_to 'このレビューを削除する', @review, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger btn-sm'  %>
+
+  </ul>
+</div>
+</div>
