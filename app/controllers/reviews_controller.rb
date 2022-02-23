@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :require_user_logged_in
   before_action :set_review, only: [:show, :edit, :update, :destroy]
     
   def index
@@ -14,7 +15,8 @@ class ReviewsController < ApplicationController
   end
 
   def create
-      @review = Review.new(review_params)
+      @review = current_user.reviews.build(review_params)
+      # @review = Review.new(review_params)
 
     if @review.save
       flash[:success] = 'レビューが正常に投稿されました'

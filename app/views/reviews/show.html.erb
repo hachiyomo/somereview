@@ -5,10 +5,13 @@
      <tr>
        <th class="text-center">タイトル</th>
        <th class="text-center">レビュー</th>
+      <th class="text-center">お気に入り</th>
      </tr>
      <tr>
        <th class="text-center"><%= @review.title %></th>
        <th class="text-center"><%= @review.text %></th>
+        <th class="text-center">
+
     </tr>
     </table>
 </ul> 
@@ -24,6 +27,6 @@
 
     <%= link_to 'このレビューを削除する', @review, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger btn-sm'  %>
 
-  </ul>
+
 </div>
 </div>

@@ -1,0 +1,20 @@
+  <% if current_user.likes?(review) %>
+     <%= link_to likes_path(review_id: review.id), method: :post do %>
+    <i class="far fa-heart like-btn" ></i>
+     <% end %>
+    <%= form_with(model: current_user.favorites.find_by(review_id: review.id), method: :delete) do |f| %>
+      <%= hidden_field_tag :review_id, review.id %>
+      <%= f.submit 'unfavorite', class: 'btn btn-danger w-100' %>
+    <% end %>
+  <% else %>
+    <%= form_with(model: current_user.favorites.build) do |f| %>
+      <%= hidden_field_tag :review_id, review.id %>
+      <%= f.submit 'favorite', class: 'btn btn-primary w-100' %>
+    <% end %>
+  <% end %>
+
+
+<button type='button'>
+<img class='mb-1' src='icons/star-fill.svg'>
+</button>
+<i class="bi bi-star"></i>

@@ -8,11 +8,13 @@
        <th class="text-center">id</th>
        <th class="text-center">タイトル</th>
        <th class="text-center">レビュー</th>
+       <th class="text-center">お気に入り</th>
      </tr>
      <tr>
        <th class="text-center"><%= link_to review.id, review %></th> 
        <th class="text-center"><%= review.title %></th>
        <th class="text-center"><%= review.text %></th>
+       <th><%= render 'favorites/favorite_button', review: review %></th>
    </tr>
    </table>
   <% end %>

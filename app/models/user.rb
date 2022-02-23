@@ -7,4 +7,20 @@ class User < ApplicationRecord
   has_secure_password
   
   has_many :reviews
+  has_many :favorites
+  has_many :likes, through: :favorites, source: :review
+  
+  def favorite(other_review)
+    self.favorites.find_or_create_by(review_id: other_review.id)
+  end
+
+def unfavorite(other_review)
+    favorite = self.favorites.find_by(review_id: other_review.id)
+    favorite.destroy if favorite
+end
+
+def likes?(other_review)
+   self.likes.include?(other_review)
+end
+
 end

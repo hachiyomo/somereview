@@ -1,0 +1,28 @@
+<% if review.any? %>
+  <ul class="list-unstyled mt-2">
+    <% reviews.each do |review| %>
+
+        <div>
+          <div>
+            <%= link_to review.user.name, user_path(review.user), class: "text-decoration-none" %> <span class="text-muted">posted at <%= review.created_at %></span>
+          </div>
+          <div>
+ <ul>
+     <table class="table table-striped table-bordered">
+     <tr>
+       <th class="text-center">タイトル</th>
+       <th class="text-center">レビュー</th>
+     </tr>
+     <tr>
+       <th class="text-center"><%= review.title %></th>
+       <th class="text-center"><%= review.text %></th>
+    </tr>
+    </table>
+</ul> 
+          </div>
+        </div>
+
+    <% end %>
+  </ul>
+  <!--< %== pagy_bootstrap_nav(@pagy) %>-->
+<% end %>
