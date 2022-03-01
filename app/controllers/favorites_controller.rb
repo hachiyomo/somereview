@@ -14,4 +14,5 @@ before_action :require_user_logged_in
     flash[:success] = 'お気に入りを解除しました。'
     redirect_back(fallback_location: root_path)
   end
+ 
 end

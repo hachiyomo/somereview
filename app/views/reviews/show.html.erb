@@ -10,12 +10,12 @@
      <tr>
        <th class="text-center"><%= @review.title %></th>
        <th class="text-center"><%= @review.text %></th>
-        <th class="text-center">
-
+        <th class="text-center"><%= render 'favorites/favorite_button', review: @review %></th>
     </tr>
     </table>
 </ul> 
 <div class="row">
+  <div class="mx-auto" style="width: 600px;">
   <div class="col-sm-8 offset-sm-3">
   
  
@@ -27,6 +27,6 @@
 
     <%= link_to 'このレビューを削除する', @review, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger btn-sm'  %>
 
-
+</div>
 </div>
 </div>
