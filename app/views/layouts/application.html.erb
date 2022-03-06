@@ -15,18 +15,15 @@
   
 
   <body data-turbolinks="false">
- 
- 
+    
+    <div class="main-container">
     <%= render 'layouts/navbar' %>
- 
-  <div class="main-container">
+    
     <div class="container">
-      <%= render 'layouts/flash_messages' %>
-
-      <%= yield %>
+    <%= render 'layouts/flash_messages' %>
+    <%= yield %>
     </div>
   </div>
-
   </body>
 
 </html>

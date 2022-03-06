@@ -24,10 +24,10 @@ class UsersController < ApplicationController
       render :new
     end
     
-    def likes
-     @user = User.find(params[:id])
-     @likes = @user.likes
-    end
+    # def likes
+    # @user = User.find(params[:id])
+    # @likes = @user.likes
+    # end
   end
 
   private

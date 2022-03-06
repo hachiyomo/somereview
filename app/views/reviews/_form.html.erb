@@ -1,16 +1,12 @@
 <%= form_with(model: review ) do |f| %>
   <%= f.label :title, 'タイトル' %>
- 
-   <%= f.text_field :title, class: 'form-control' %>
+  <%= f.text_field :title, class: 'form-control' %>
   
   <%= f.label :text, 'レビュー' %>
- 
   <%= f.text_area :text, class: 'form-control', size: "70*70" %>
 
- <div class="mx-auto" style="width: 200px;">
+  <div class="mx-auto" style="width: 200px;">
     <%= f.submit '投稿', class: 'align-items-center, btn btn-secondary btn-sm mr-6' %>
+    <%= link_to '一覧に戻る', reviews_path, class: 'align-items-center, btn btn-secondary btn-sm mr-6' %>
   </div>
 <% end %>
- <div class="mx-auto" style="width: 200px;">
-<%= link_to '一覧に戻る', reviews_path, class: 'align-items-center, btn btn-secondary btn-sm mr-6' %>
-</div>
