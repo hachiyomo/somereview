@@ -6,26 +6,27 @@
   <ul>
     <table class="table table-bordered table-light">
       <tr>
-        <th class="text-center table-active align-middle" style="width: 5%">id</th>
-        <th class="text-center table-active align-middle" style="width: 30%">タイトル</th>
-        <th class="text-center table-active align-middle" style="width: 60%">レビュー</th>
-        <th class="text-center table-active align-middle" style="width: 5%">お気に入り</th>
-     </tr>
+        <th class="text-center table-secondary align-middle" style="width: 5%">id</th>
+        <th class="text-center table-secondary align-middle" style="width: 30%">タイトル</th>
+        <th class="text-center table-secondary align-middle" style="width: 60%">レビュー</th>
+        <th class="text-center table-secondary align-middle" style="width: 5%">お気に入り</th>
+      </tr>
 
   <% @reviews.each do |review| %>
-    <tr>
-       <th class="text-center align-middle"><%= link_to review.id, review %></th> 
-       <th class="text-left align-middle"><%= review.title %></th>
-       <th class="text-left align-middle"><%= review.text %></th>
-       <th class="text-center align-middle"><%= render 'favorites/favorite_button', review: review %></th>
-   </tr>
+      <tr>
+        <th class="text-center align-middle"><%= link_to review.id, review %></th> 
+        <th class="text-left align-middle"><%= review.title %></th>
+        <th class="text-left align-middle"><%= review.text %></th>
+        <th class="text-center align-middle"><%= render 'favorites/favorite_button', review: review %></th>
+      </tr>
   <% end %>
    </table>
-</div>  
+   </ul>
+  </div>  
 </div>   
    
 
-</ul>
+
 <div class="mx-auto" style="width: 200px;">
 <%= link_to '新規レビュー投稿', new_review_path, class: 'align-items-center, btn btn-secondary btn-sm mr-6' %>
  </div>

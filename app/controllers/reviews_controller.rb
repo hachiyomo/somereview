@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :require_user_logged_in
   before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :destroy]
     
   def index
     @reviews = Review.all
@@ -17,7 +18,6 @@ class ReviewsController < ApplicationController
   def create
       @review = current_user.reviews.build(review_params)
       # @review = Review.new(review_params)
-
     if @review.save
       flash[:success] = 'レビューが正常に投稿されました'
       redirect_to @review
@@ -33,7 +33,6 @@ class ReviewsController < ApplicationController
 
   def update
     # @review = Review.find(params[:id])
-
     if @review.update(review_params)
       flash[:success] = 'レビューは正常に更新されました'
       redirect_to @review
@@ -46,7 +45,6 @@ class ReviewsController < ApplicationController
   def destroy
     # @review = Review.find(params[:id])
     @review.destroy
-
     flash[:success] = 'レビューは正常に削除されました'
     redirect_to reviews_url
   end
@@ -61,5 +59,11 @@ private
   def review_params
     params.require(:review).permit(:title, :text)
   end
-
+  
+  def correct_user
+    @review = current_user.reviews.find_by(id: params[:id])
+    unless @review
+      redirect_to root_url
+    end
+  end 
 end

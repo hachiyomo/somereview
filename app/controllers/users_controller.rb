@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show]
+  before_action :require_user_logged_in, only: [:show]
   
-  def index
-    @pagy, @users = pagy(User.order(id: :desc), items: 20)
-  end
+  # def index
+  #   @pagy, @users = pagy(User.order(id: :desc), items: 20)
+  # end
 
   def show
     @user = User.find(params[:id])
@@ -24,10 +24,10 @@ class UsersController < ApplicationController
       render :new
     end
     
-    # def likes
-    # @user = User.find(params[:id])
-    # @likes = @user.likes
-    # end
+    def likes
+    @user = User.find(params[:id])
+    @likes = @user.likes
+    end
   end
 
   private

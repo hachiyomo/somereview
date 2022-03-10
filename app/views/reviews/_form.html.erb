@@ -5,8 +5,12 @@
   <%= f.label :text, 'レビュー' %>
   <%= f.text_area :text, class: 'form-control', size: "70*70" %>
 
+<div class="row m-4">
   <div class="mx-auto" style="width: 200px;">
+  <div class="col-sm-10 pb-4">
     <%= f.submit '投稿', class: 'align-items-center, btn btn-secondary btn-sm mr-6' %>
     <%= link_to '一覧に戻る', reviews_path, class: 'align-items-center, btn btn-secondary btn-sm mr-6' %>
   </div>
+  </div>
+</div>
 <% end %>
